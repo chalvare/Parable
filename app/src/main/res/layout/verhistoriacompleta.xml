@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/degradado">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tuhistoria"
+        android:id="@+id/textView"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/historia"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nombreWeb"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/enviarWeb"
+        android:id="@+id/bEnviarWeb"
+        android:theme="@style/YourApplicationTheme"
+        android:layout_alignTop="@+id/nombreWeb"
+        android:layout_alignEnd="@+id/historia" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textoInfoEnvio"
+        android:id="@+id/textView6"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/historia"
+        android:layout_alignStart="@+id/historia" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bmail"
+        android:id="@+id/bmail"
+        android:theme="@style/YourApplicationTheme"
+        android:layout_below="@+id/nombreWeb"
+        android:layout_alignStart="@+id/bEnviarWeb" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/valoracion"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/puntuacion"
+        android:layout_above="@+id/textView6"
+        android:layout_alignStart="@+id/historia"
+        android:textColor="#ffffff"
+        android:layout_alignEnd="@+id/historia"
+        android:layout_marginBottom="10px"
+        android:layout_marginTop="10px" />
+
+</RelativeLayout>

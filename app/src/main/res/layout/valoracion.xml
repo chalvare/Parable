@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/degradado">
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/valoracion"
+        android:layout_marginBottom="55dp"
+        android:layout_above="@+id/enviar_valoracion"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_valoracion"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:textColor="#ffffff"
+        android:id="@+id/texto_valoracion"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/resena"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="#ffffff"
+        android:hint="Escribe tu reseña aquí"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/but_enviar_valoracion"
+        android:id="@+id/enviar_valoracion"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:theme="@style/YourApplicationTheme" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nombre"
+        android:layout_below="@+id/texto_valoracion"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:autoText="false"
+        android:textColorHint="#ffffff"
+        android:hint="Introduce tu nombre"
+        android:textColor="#ffffff" />
+</RelativeLayout>

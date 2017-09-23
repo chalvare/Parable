@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.parable.parablesdb" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/iconapp"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.parable.actividades.Inicio"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.parable.actividades.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.WPSActivity"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.WPSDatosBD"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.Posicion"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.HistoriaCompleta"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.CodigoQR"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.Acercade"
+            android:label="Acerca de..."
+            android:theme="@android:style/Theme.Dialog"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.Juego"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.AyudaEG"
+            android:label="Instrucciones"
+            android:theme="@android:style/Theme.Dialog"
+            android:screenOrientation= "portrait" >
+        </activity>
+        <activity
+            android:name="com.parable.actividades.Valoracion"
+            android:label="@string/app_name"
+            android:screenOrientation= "portrait" >
+        </activity>
+    </application>
+    <!-- Nos da permiso para utilizar el wifi si no estaba activado -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- used to obtain information about the WiFi environment -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+</manifest>

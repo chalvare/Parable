@@ -1,0 +1,59 @@
+package com.parable.parablesdb;
+
+import android.widget.EditText;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Altair on 10/11/15.
+ */
+public class HttpServices {
+
+
+
+    public boolean insertarBD(String macEdit, EditText xEdit, EditText yEdit, EditText zEdit, int nivelEdit){
+        HttpClient httpClient;
+        List<NameValuePair> nameValuePairs;
+        HttpPost httpPost;
+
+        httpClient = new DefaultHttpClient();
+        httpPost = new HttpPost("http://192.168.1.137/parable/insertarEnBD.php");
+
+        nameValuePairs = new ArrayList<NameValuePair>();
+        //nameValuePairs.add(new BasicNameValuePair("numX",numX.getText().toString().trim()));
+        nameValuePairs.add(new BasicNameValuePair("mac",macEdit));
+        nameValuePairs.add(new BasicNameValuePair("x",xEdit.getText().toString().trim()));
+        nameValuePairs.add(new BasicNameValuePair("y",yEdit.getText().toString().trim()));
+        nameValuePairs.add(new BasicNameValuePair("z",zEdit.getText().toString().trim()));
+        nameValuePairs.add(new BasicNameValuePair("nivel",String.valueOf(nivelEdit)));
+
+
+        try{
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            httpClient.execute(httpPost);
+            return true;
+        }catch(UnsupportedEncodingException e){
+            e.printStackTrace();
+        }catch(ClientProtocolException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
+
+}

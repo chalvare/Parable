@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/degradado">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tituloJuego"
+        android:id="@+id/titulo"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:textSize="20dp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="New"
+        android:id="@+id/bpiedra"
+        android:background="@null"
+        android:src="@drawable/piedra"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/titulo"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="New"
+        android:id="@+id/bpapel"
+        android:background="@null"
+        android:src="@drawable/papel"
+        android:layout_alignTop="@+id/bpiedra"
+        android:layout_toEndOf="@+id/bpiedra"
+        android:layout_marginLeft="20dp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="New"
+        android:id="@+id/btijera"
+        android:background="@null"
+        android:src="@drawable/tijera"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/bpapel"
+        android:layout_toEndOf="@+id/bpapel" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="New"
+        android:id="@+id/blagarto"
+        android:background="@null"
+        android:src="@drawable/lagarto"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/btijera"
+        android:layout_toEndOf="@+id/btijera" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="New"
+        android:id="@+id/bspock"
+        android:background="@null"
+        android:src="@drawable/spock"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/blagarto"
+        android:layout_toEndOf="@+id/blagarto" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado:"
+        android:id="@+id/resultado"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="34dp"
+        android:textSize="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/progressBar1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/juego"
+        android:id="@+id/bjugar"
+        android:theme="@style/YourApplicationTheme"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marcador:"
+        android:id="@+id/marcador"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/resultado"
+        android:layout_alignEnd="@+id/bjugar" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar1"
+        android:max="100"
+        android:minHeight="50dp"
+        android:minWidth="200dp"
+        android:progress="10"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/bjugar"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bAyudaEG"
+        android:id="@+id/bayuda"
+        android:layout_below="@+id/marcador"
+        android:layout_alignStart="@+id/bpiedra"
+        android:theme="@style/YourApplicationTheme" />
+
+
+</RelativeLayout>

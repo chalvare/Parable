@@ -1,0 +1,12 @@
+package com.parable.parablesdb;
+
+/**
+ * Created by Altair on 10/11/15.
+ */
+public class WPSException extends Exception{
+    private static final long serialVersionUID = 1L;
+
+    public WPSException(String message){
+        super(message);
+    }
+}

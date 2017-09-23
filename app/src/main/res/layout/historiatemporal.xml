@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/degradado">
+
+    <VideoView
+        android:id="@+id/videoView1"
+        android:nestedScrollingEnabled="false"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_margin="10dp" />
+      <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+          android:textColor="#ffffff"
+        android:id="@+id/LugarSalir"
+          android:layout_marginRight="0dp"
+        android:gravity="bottom"
+        android:scrollbars = "vertical"
+          android:layout_below="@+id/videoView1"
+          android:layout_alignStart="@+id/videoView1"
+          android:layout_alignEnd="@+id/videoView1"
+          android:layout_above="@+id/bHistoriaCompleta" />
+
+
+    <Button
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:text="@string/histCompleta"
+        android:id="@+id/bHistoriaCompleta"
+        android:theme="@style/YourApplicationTheme"
+          android:layout_marginRight="0dp"
+          android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/bleerqr"
+        android:layout_toEndOf="@+id/bleerqr" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bParar"
+        android:src="@drawable/pause"
+        android:background="@null"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/LugarSalir"
+        android:layout_alignEnd="@+id/LugarSalir" />
+
+    <Button
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:text="@string/leerQR"
+        android:id="@+id/bleerqr"
+        android:theme="@style/YourApplicationTheme"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/LugarSalir"
+        android:layout_marginBottom="5dp" />
+
+    <ImageButton
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/btwitter"
+        android:src="@drawable/twitter"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_alignTop="@+id/bHistoriaCompleta"
+        android:layout_toEndOf="@+id/bHistoriaCompleta" />
+
+</RelativeLayout>

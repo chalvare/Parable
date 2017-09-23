@@ -1,0 +1,92 @@
+package com.parable.actividades;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AbsoluteLayout;
+
+import com.parable.WPS.ThreadDatos;
+import com.parable.WPS.ThreadUbicacion;
+import com.parable.parablesdb.R;
+
+/**
+ * Created by Altair on 17/11/15.
+ */
+public class Posicion extends Activity {
+
+    private ThreadUbicacion thread;
+    private ProgressDialog pd;
+    private Thread comprobar;
+//    private Mapa m;
+//    private ListaCuadrantes cuadrantes;
+
+    public void onCreate(final Bundle savedInstanceState) {
+        MainActivity.activeActivity = this;
+        super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.temporal);
+        AbsoluteLayout main = (AbsoluteLayout) findViewById(R.id.temporalLayout);
+
+        //cuadrantes = thread.getCuadrantes();
+       // cuadrantes = new ListaCuadrantes();
+//        m = new Mapa(this);
+//        m.setListaCuadrantes(cuadrantes);
+//        main.addView(m);
+        pd = ProgressDialog.show(this, "", "Cargando datos...");
+        comprobar = new Thread(){
+            public void run(){
+                comprobar();
+            }
+        };
+        comprobar.start();
+
+
+    }
+
+	/*public boolean onTouchEvent (MotionEvent event){
+
+
+	}*/
+
+
+
+    private void comprobar(){
+        if(MainActivity.threadDatos.getEstado() == ThreadDatos.ESTADO_ERROR){
+            pd.dismiss();
+           // DialogController.createInformDialog(this, "Ha ocurido un error mientras se recuperaban los datos.");
+        }else if(MainActivity.threadDatos.getEstado() == ThreadDatos.ESTADO_EJECUCION){
+            SystemClock.sleep(2000);
+            comprobar();
+        }else if(MainActivity.threadDatos.getEstado() == ThreadDatos.ESTADO_EXITO){
+            //Mapa m = new Mapa(this);
+            pd.dismiss();
+            //setContentView(m);
+            if(thread == null){
+                thread = new ThreadUbicacion(this);
+               // thread.setCuadrantes(cuadrantes);
+                thread.start();
+            }
+        }
+    }
+
+    public void refresh(double x, double y,int c){
+//        m.setPosX(x);
+//        m.setPosY(y);
+//        m.setCuadrante(c);
+		/*try{
+			m.invalidate();
+		}catch(Exception e){
+			String s = e.getMessage();
+			int i = 0;
+		}*/
+    }
+
+
+}

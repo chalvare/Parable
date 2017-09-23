@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/macText"
+        android:id="@+id/textView" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/macEdit" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xText"
+                android:id="@+id/textView4"
+                android:layout_marginStart="26dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yText"
+                android:id="@+id/textView3"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/textView5"
+                android:layout_marginEnd="50dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zText"
+                android:id="@+id/textView5"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/textView6"
+                android:layout_marginEnd="64dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nivelText"
+                android:id="@+id/textView6"
+                android:layout_marginEnd="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="97dp" >
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/xEdit"
+                android:layout_marginStart="24dp"
+                android:width="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/yEdit"
+                android:width="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/zEdit"
+                android:layout_marginEnd="40dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/zEdit"
+                android:layout_marginEnd="48dp"
+                android:width="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/nivelEdit" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nivelEdit"
+                android:layout_marginEnd="29dp"
+                android:width="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.19">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enviarDB_but_text"
+                android:id="@+id/enviarBot"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/atrasBot"
+                android:layout_marginEnd="47dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/atrasBot"
+                android:text="@string/atras_but_text"
+                android:layout_alignTop="@+id/enviarBot"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="79dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/Users/Altair/AndroidStudioProjects/ParablesDB/app/src/main/res/layout/enviar_datos.xml -->

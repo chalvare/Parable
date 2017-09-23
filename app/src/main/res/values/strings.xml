@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Parable</string>
+    <string name="action_settings">Settings</string>
+    <string name="macText">Dirección Mac</string>
+    <string name="xText">CoorX</string>
+    <string name="yText">CoorY</string>
+    <string name="zText">CoorZ</string>
+    <string name="nivelText">Nivel</string>
+    <string name="enviarDB_but_text">Enviar</string>
+    <string name="atras_but_text">Atrás</string>
+    <string name="but_wifi">Guardar Coordenadas</string>
+    <string name="but_localizacion">Comenzar relato</string>
+    <string name="acercaDe">About</string>
+    <string name="histCompleta">Historia completa</string>
+    <string name="pararButton">Pause</string>
+    <string name="tuhistoria">Esta es tu historia</string>
+    <string name="but_codqr">Crear código QR</string>
+    <string name="CrearQR">Crear QR</string>
+    <string name="infoQR">Introduce una frase acorde con la posicion en la que quieres colocar el QR y luego haz una captura de pantalla</string>
+    <string name="leerQR">Leer QR</string>
+    <string name="enviarWeb">Enviar</string>
+    <string name="bmail">Mail</string>
+    <string name="textoInfoEnvio">¿Quieres guardar tu historia en nuestra base de datos? Introduce tu nombre, valorala y envianosla. O si lo prefieres, puedes enviarla a tu mail.</string>
+    <string name="tituloJuego">Piedra, Papel, Tijera, Lagarto, Spock</string>
+    <string name="juego">Jugar</string>
+    <string name="ayudaEg">Las tijeras cortan el papel, el papel cubre a la piedra, la piedra aplasta al lagarto, el lagarto envenena a Spock, Spock destroza las tijeras, las tijeras decapitan al lagarto, el lagarto se come el papel, el papel refuta a Spock, Spock vaporiza la piedra, y, como es habitual… la piedra aplasta las tijeras.</string>
+    <string name="bAyudaEG">Ayuda</string>
+    <string name="val">Valoración</string>
+    <string name="but_valoracion">Valóranos</string>
+    <string name="texto_valoracion">¡VALÓRANOS!</string>
+    <string name="but_enviar_valoracion">Valorar</string>
+
+</resources>

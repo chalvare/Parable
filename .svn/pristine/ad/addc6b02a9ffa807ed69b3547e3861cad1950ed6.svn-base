@@ -1,0 +1,169 @@
+package com.parable.WPS;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.wifi.WifiManager;
+import android.os.SystemClock;
+import android.util.Log;
+import android.widget.ImageView;
+
+import com.parable.actividades.MainActivity;
+import com.parable.actividades.Posicion;
+import com.parable.parablesdb.R;
+
+/**
+ * Created by Altair on 17/11/15.
+ * Hilo de ejecución que se encarga de ubicar al usuario en el mapa
+ */
+public class ThreadUbicacion extends Thread {
+
+    private WPS lista;//para escanear las wifis a nuestro alrededor
+    private Posicion actividadPadre;//para pasar el contexto en el que nos encontramos
+    private int estado;//estado actual de ejecución, parado o error
+    private Coordenada coord;//coordenada de donde nos encontramos actualmente
+
+
+//    Se usarán en un futuro
+//    private long time;
+//
+//    private SensorManager mSensorManager;
+//    public float[] magnetic_angles;
+//    public float[] accelerations;
+//    private boolean giroValido;
+
+    /**
+     * Mapa con las zonas permitidas en blanco
+     */
+    public static Bitmap mapaMascara;
+
+    private final int ESTADO_PARADO = 0;
+    private final int ESTADO_EJECUCION = 1;
+    private final int ESTADO_ERROR = 2;
+
+
+    /**
+     * Constructora
+     * @Param Le pasamos la actividad que tiene el mapa pintado
+     */
+
+    public ThreadUbicacion(Posicion actividadMapa){
+        actividadPadre=actividadMapa;
+        this.setName("ThreadUbicacion");
+        estado = ESTADO_EJECUCION;
+
+//        mSensorManager = (SensorManager) activity.getSystemService(Context.SENSOR_SERVICE);
+//
+//        Sensor s = mSensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER).get(0);
+//        Sensor s2 = mSensorManager.getSensorList(Sensor.TYPE_MAGNETIC_FIELD).get(0);
+//
+//        SensorEventListener magneticAnglesListener = new SensorEventListener(){
+//
+//            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+//
+//            }
+//
+//            public void onSensorChanged(SensorEvent event) {
+//                magnetic_angles = event.values;
+//            }
+//
+//        };
+//
+//        SensorEventListener accelerationsListener = new SensorEventListener(){
+//
+//            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+//
+//            }
+//
+//            public void onSensorChanged(SensorEvent event) {
+//                accelerations = event.values;
+//            }
+//
+//        };
+//
+//        mSensorManager.registerListener(accelerationsListener, s, SensorManager.SENSOR_DELAY_GAME);
+//        mSensorManager.registerListener(magneticAnglesListener, s2, SensorManager.SENSOR_DELAY_GAME);
+
+        ImageView img = new ImageView(actividadMapa);
+        img.setImageResource(R.drawable.mapamascara); //mapa que esta en drawable.
+        mapaMascara = BitmapFactory.decodeResource(img.getResources(), R.drawable.mapamascara);
+
+    }
+
+
+    public void run(){
+        lista = new WPS(actividadPadre);
+        WifiManager manager = (WifiManager)actividadPadre.getSystemService(Context.WIFI_SERVICE);
+
+
+        while(estado!=ESTADO_ERROR){
+            if(estado==ESTADO_EJECUCION){
+                if(!manager.isWifiEnabled()){//si el wifi esta parado lo activamos
+                    estado=ESTADO_PARADO;
+                    activarWifi();
+
+                }else{//si el wifi esta funcionando
+                    try{
+
+                        coord= MainActivity.threadDatos.getDatabase().calcularPosicion(lista.scanAndShow());
+
+                        Log.e("MAAACC",String.valueOf(coord.getMac()));
+                        Log.e("XXXX",String.valueOf(coord.getX()));
+                        Log.e("YYYY",String.valueOf(coord.getY()));
+                        Log.e("ZZZZ",String.valueOf(coord.getZ()));
+                        Log.e("NIVEL",String.valueOf(coord.getNivel()));
+                    }catch (WPSException e){
+                        Log.e("ThreadUbicacion", e.getMessage());
+                        e.printStackTrace();
+                        estado = ESTADO_PARADO;
+                        activarWifi();
+                    }
+                }
+            }//fin if
+        }//fin while
+
+
+    }
+
+    /**
+     * Pregunta al usuario si quiere activar el WiFi
+     */
+    private void activarWifi(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(actividadPadre);
+        builder.setMessage("El dispositivo WiFi esta desactivado.");
+        builder.setPositiveButton("Activar", new android.content.DialogInterface.OnClickListener(){
+
+            public void onClick(DialogInterface arg0, int arg1) {
+                WifiManager manager = (WifiManager) actividadPadre.getSystemService(Context.WIFI_SERVICE);
+                manager.setWifiEnabled(true);
+                int i = 0;
+                boolean b = false;
+                while(!b && i < 10){
+                    b = manager.isWifiEnabled();
+                    i++;
+                    try {
+                        SystemClock.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(manager.isWifiEnabled()){
+                    estado = ESTADO_EJECUCION;
+                }else{
+                    estado = ESTADO_ERROR;
+                }
+            }
+
+        });
+
+		/*builder.setCancelable(false);
+		AlertDialog alert = builder.create();
+		alert.show();*/
+    }
+
+
+
+}

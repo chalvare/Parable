@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ParablesDB</string>
+    <string name="action_settings">Settings</string>
+    <string name="macText">Dirección Mac</string>
+    <string name="xText">CoorX</string>
+    <string name="yText">CoorY</string>
+    <string name="zText">CoorZ</string>
+    <string name="nivelText">Nivel</string>
+    <string name="enviarDB_but_text">Enviar</string>
+    <string name="atras_but_text">Atrás</string>
+</resources>
